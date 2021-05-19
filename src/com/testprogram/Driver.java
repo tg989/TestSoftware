@@ -29,8 +29,9 @@ public class Driver {
             {
                 words = spiltWords(fileScan.nextLine());
                 //Runs a check for whether or not the words have been passed or not.
-                for(String e:words)
+                for(String e:words) {
                     checkUnique(e);
+                }
             }
             mergeSort.decrementIndex();//index is incremented once too many, so this pulls it back appropriately.
             return true;
@@ -76,9 +77,11 @@ public class Driver {
     public boolean checkUnique(String word) {
         boolean unique = false;
         //checks if the word entered is empty.
-        if (isEmptyWord(word)) {
+
+        if (!isEmptyWord(word)) {
             /*Checks whether the word is already in the hashmap
             and if not it adds it to the array.*/
+            System.out.println(word);
             if(!mergeSort.getWordMap().containsKey(word)) {
                 unique = true;
                 mergeSort.incrementUnique();
@@ -98,6 +101,10 @@ public class Driver {
 
     public boolean isEmptyWord(String word) {
         return word.isEmpty() && word.trim().equals("") && word.trim().equals("\n");
+    }
+
+    public static MergeSort getMergeSort() {
+        return mergeSort;
     }
 }
 // c:\Uni\A1sample.txt

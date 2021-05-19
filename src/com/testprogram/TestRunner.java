@@ -6,6 +6,17 @@ import org.junit.runner.notification.Failure;
 
 public class TestRunner {
     public static void main(String[] args) {
+        // Running Program generally
+        Driver driver = new Driver();
+        if (driver.readFile()) {
+            System.out.println("RIGHTO");
+        } else {
+            System.out.println("This wrong");
+        }
+        Driver.getMergeSort().mergeSortWordArray();
+        driver.printHead();
+        driver.printTail();
+
         // Conduct tests & Generate report here
         Result result = JUnitCore.runClasses(Driver.class);
 
