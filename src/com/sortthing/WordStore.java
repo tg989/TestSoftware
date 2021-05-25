@@ -14,7 +14,6 @@ public class WordStore
 
     }
 
-
     public String getWord()
     {
         return word;
