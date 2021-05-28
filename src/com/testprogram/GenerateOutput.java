@@ -47,16 +47,16 @@ public class GenerateOutput {
             //Prints head(first ten words).
             System.out.println("Head:");
             for (int i = 0; i < 10; i++) {
-                head += String.format("Word: %20s Count: %3d\n", testArray.get(i).getWord(), testArray.get(i).getCount());
-                System.out.printf("Word: %20s Count: %3d\n", testArray.get(i).getWord(), testArray.get(i).getCount());
+                head += String.format("Word: %15s Count: %3d\n", testArray.get(i).getWord(), testArray.get(i).getCount());
+                System.out.printf("Word: %15s Count: %3d\n", testArray.get(i).getWord(), testArray.get(i).getCount());
             }
 
             //Prints tail(last 10 words).
             System.out.println();
             System.out.println("Tail:");
             for (int i = wordCount - 10; i < wordCount; i++) {
-                tail += String.format("Word: %20s Count: %3d\n", testArray.get(i).getWord(), testArray.get(i).getCount());
-                System.out.printf("Word: %20s Count: %3d\n", testArray.get(i).getWord(), testArray.get(i).getCount());
+                tail += String.format("Word: %15s Count: %3d\n", testArray.get(i).getWord(), testArray.get(i).getCount());
+                System.out.printf("Word: %15s Count: %3d\n", testArray.get(i).getWord(), testArray.get(i).getCount());
 
             }
         }
