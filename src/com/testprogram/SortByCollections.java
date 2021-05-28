@@ -1,4 +1,4 @@
-package com.sortthing;
+package com.testprogram;
 
 import java.util.Comparator;
 

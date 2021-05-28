@@ -1,6 +1,4 @@
-package com.sortthing;
-
-import java.util.Random;
+package com.testprogram;
 
 public class WordStore
 {

@@ -6,22 +6,16 @@ Dew902
 */
 package com.testprogram;
 import java.io.*;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Driver {
     private static final MergeSort mergeSort = new MergeSort();
 
-    public String getFilePath() {
-        //File Input
-        System.out.println("Input file directory:");
-        Scanner input = new Scanner(System.in);
-        return input.next();
-    }
-
     public boolean readFile() {
         try {
             //File scan
-            File fl = new File(getFilePath());
+            File fl = new File("A1sample.txt");
             Scanner fileScan = new Scanner(fl);
             String[] words;//Temporary string storage for input.
 
@@ -49,27 +43,27 @@ public class Driver {
 
     }
 
-    public String printHead() {
+    public String printHead(String[] array, HashMap<String, Integer> map) {
         //Prints head(first ten words).
         System.out.println("Head:");
         String head = "";
         for(int i = 0; i<10;i++)
-            head += formatOutput(i);
+            head += formatOutput(array[i], map.get(array[i]));
         System.out.println(head);
         return head;
     }
 
-    public String formatOutput(int i) {
-        return String.format("Word: %15s Count: %3d\n", mergeSort.getWordArray()[i], mergeSort.getWordMap().get( mergeSort.getWordArray()[i]));
+    public String formatOutput(String word, int count) {
+        return String.format("Word: %15s Count: %3d\n", word, count);
     }
 
-    public String printTail() {
+    public String printTail(String[] array, HashMap<String, Integer> map) {
         //Prints tail(last 10 words).
         //System.out.println();
         System.out.println("Tail:");
         String tail = "";
         for(int i = mergeSort.getIndex()-10; i< mergeSort.getIndex();i++)
-            tail += formatOutput(i);
+            tail += formatOutput(array[i], map.get(array[i]));
         System.out.println(tail);
         return tail;
     }
@@ -78,10 +72,10 @@ public class Driver {
         boolean unique = false;
         //checks if the word entered is empty.
 
-        if (!isEmptyWord(word)) {
+        if (isNotEmptyWord(word)) {
             /*Checks whether the word is already in the hashmap
             and if not it adds it to the array.*/
-            System.out.println(word);
+            //System.out.println(word);
             if(!mergeSort.getWordMap().containsKey(word)) {
                 unique = true;
                 mergeSort.incrementUnique();
@@ -99,8 +93,8 @@ public class Driver {
         return unique;
     }
 
-    public boolean isEmptyWord(String word) {
-        return word.isEmpty() && word.trim().equals("") && word.trim().equals("\n");
+    public boolean isNotEmptyWord(String word) {
+        return word != null && !word.trim().isEmpty();
     }
 
     public static MergeSort getMergeSort() {
