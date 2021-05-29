@@ -92,7 +92,8 @@ public class DriverTest {
     public void testTailOutput() {
         //String tail = "Word: Apples Count: 50000\n"; // PLACEHOLDER
         String tail = randomOutput.getTail();
-        assertEquals("Test if the tail is correct", tail, testSubject.printTail(randomOutput.getWordArray(), randomOutput.getWordMap()));
+        int count = randomOutput.getWordCount();
+        assertEquals("Test if the tail is correct", tail, testSubject.printTail(randomOutput.getWordArray(), randomOutput.getWordMap(), count));
     }
 
 }

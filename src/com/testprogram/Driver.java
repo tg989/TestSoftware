@@ -57,12 +57,11 @@ public class Driver {
         return String.format("Word: %15s Count: %3d\n", word, count);
     }
 
-    public String printTail(String[] array, HashMap<String, Integer> map) {
+    public String printTail(String[] array, HashMap<String, Integer> map, int index) {
         //Prints tail(last 10 words).
-        //System.out.println();
         System.out.println("Tail:");
         String tail = "";
-        for(int i = mergeSort.getIndex()-10; i< mergeSort.getIndex();i++)
+        for(int i = index - 10; i< index;i++)
             tail += formatOutput(array[i], map.get(array[i]));
         System.out.println(tail);
         return tail;

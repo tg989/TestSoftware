@@ -11,10 +11,11 @@ public class GenerateOutput {
     private String tail = "";
     private ArrayList<WordStore> testArray = new ArrayList<>();
     private ArrayList<String> dictionaryArray = new ArrayList<>();
+    private final int wordCount;
 
     GenerateOutput() {
         Random random = new Random();
-        int wordCount = 10 + random.nextInt(49990);
+        wordCount = 10 + random.nextInt(49990);
 
         System.out.println(wordCount);
         String lineIn = "";
@@ -88,5 +89,9 @@ public class GenerateOutput {
             wordArray[i] = testArray.get(i).getWord();
         }
         return wordArray;
+    }
+
+    public int getWordCount() {
+        return wordCount;
     }
 }
