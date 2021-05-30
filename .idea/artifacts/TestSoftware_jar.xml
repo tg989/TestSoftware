@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TestSoftware:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TestSoftware_jar</output-path>
+    <root id="archive" name="TestSoftware.jar">
+      <element id="module-output" name="TestSoftware" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../junit-4.10.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
