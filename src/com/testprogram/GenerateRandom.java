@@ -1,18 +1,25 @@
 package com.testprogram;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Random;
+
 
 public class GenerateRandom {
     public String randomString(int bounds) {
-        byte[] array = new byte[bounds];
-        new Random().nextBytes(array);
-        return new String(array, StandardCharsets.UTF_8);
+        int left = 97; // letter "a"
+        int right = 122; // letter "z"
+        Random random = new Random();
+
+        String generatedString = random.ints(left, right+ 1)
+                .limit(bounds)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+
+        return generatedString;
     }
 
     public int randomNumber(int bounds) {
-        Random rand = new Random(bounds);
-        return rand.nextInt();
+        Random rand = new Random();
+        return rand.nextInt(bounds);
     }
 
     public String generateLine() {

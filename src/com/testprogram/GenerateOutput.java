@@ -15,7 +15,7 @@ public class GenerateOutput {
         Random random = new Random();
         wordCount = 10 + random.nextInt(49990);
 
-        System.out.println(wordCount);
+        //System.out.println(wordCount);
         String lineIn = "";
         try {
             //File scan
@@ -41,21 +41,21 @@ public class GenerateOutput {
 
             //Sorts testArray so that the expected output is sorted by most to least then alphabetically if numbers are the same.
             Collections.sort(testArray, Collections.reverseOrder(new SortByCollections()));
-            System.out.println("test array size: " + testArray.size());
+            //System.out.println("test array size: " + testArray.size());
 
             //Prints head(first ten words).
-            System.out.println("Head:");
+            //System.out.println("Head:");
             for (int i = 0; i < 10; i++) {
                 head += String.format("Word: %15s Count: %3d\n", testArray.get(i).getWord(), testArray.get(i).getCount());
-                System.out.printf("Word: %15s Count: %3d\n", testArray.get(i).getWord(), testArray.get(i).getCount());
+                //System.out.printf("Word: %15s Count: %3d\n", testArray.get(i).getWord(), testArray.get(i).getCount());
             }
 
             //Prints tail(last 10 words).
-            System.out.println();
-            System.out.println("Tail:");
+            //System.out.println();
+            //System.out.println("Tail:");
             for (int i = wordCount - 10; i < wordCount; i++) {
                 tail += String.format("Word: %15s Count: %3d\n", testArray.get(i).getWord(), testArray.get(i).getCount());
-                System.out.printf("Word: %15s Count: %3d\n", testArray.get(i).getWord(), testArray.get(i).getCount());
+                //System.out.printf("Word: %15s Count: %3d\n", testArray.get(i).getWord(), testArray.get(i).getCount());
 
             }
         }

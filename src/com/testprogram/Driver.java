@@ -45,11 +45,11 @@ public class Driver {
 
     public String printHead(String[] array, HashMap<String, Integer> map) {
         //Prints head(first ten words).
-        System.out.println("Head:");
+        //System.out.println("Head:");
         String head = "";
         for(int i = 0; i<10;i++)
             head += formatOutput(array[i], map.get(array[i]));
-        System.out.println(head);
+        //System.out.println(head);
         return head;
     }
 
@@ -59,11 +59,11 @@ public class Driver {
 
     public String printTail(String[] array, HashMap<String, Integer> map, int index) {
         //Prints tail(last 10 words).
-        System.out.println("Tail:");
+        //System.out.println("Tail:");
         String tail = "";
         for(int i = index - 10; i< index;i++)
             tail += formatOutput(array[i], map.get(array[i]));
-        System.out.println(tail);
+        //System.out.println(tail);
         return tail;
     }
 

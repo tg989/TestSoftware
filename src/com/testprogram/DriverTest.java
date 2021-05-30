@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 public class DriverTest {
@@ -28,72 +30,121 @@ public class DriverTest {
     // Test reading file contents
     @Test
     public void testReadingFile() {
-        assertTrue("Testing reading in the file without errors",testSubject.readFile());
+        String message = "Testing reading in the file: ";
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println(message);
+        boolean testReading = testSubject.readFile();
+        System.out.println("Read in file: " + testReading);
+        assertTrue("Testing reading in the file", testReading);
     }
 
     // Test Spilt Words
     @Test
     public void testSpilt() {
+        String message = "Testing spilt words array: ";
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println(message);
         String line = randomGenerator.generateLine();
         String trimedLine = line.trim();
-        String[] spiltWord = trimedLine.replaceAll("[\\p{P}]","").toLowerCase().split("\\W+");
-        assertArrayEquals("Testing spilt words array", spiltWord, testSubject.spiltWords(line));
+        System.out.println("Generated Line: " + trimedLine);
+        String[] splitWords = trimedLine.replaceAll("[\\p{P}]","").toLowerCase().split("\\W+");
+        String[] actualSplitWords = testSubject.spiltWords(line);
+        System.out.println("Expected split line: " + Arrays.toString(splitWords));
+        System.out.println("Actual split line: " + Arrays.toString(actualSplitWords));
+        assertArrayEquals(message, splitWords, actualSplitWords);
     }
 
     // Test unique checker
     @Test
     public void testUnique1() {
+        String message = "Test if word is unique";
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println(message);
         String word = randomGenerator.randomString(15);
-        assertTrue("Test if word is unique", testSubject.checkUnique(word));
+        System.out.println("Generated word: " + word);
+        boolean checkUnique = testSubject.checkUnique(word);
+        System.out.println("Is word unique: " + checkUnique);
+        assertTrue(message, checkUnique);
     }
 
     @Test
     public void testUnique2() {
+        String message = "Test if word is not unique";
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println(message);
         String word = randomGenerator.randomString(15);
+        System.out.println("Generated word: " + word);
         testSubject.checkUnique(word);
-        assertFalse("Test if word is not unique", testSubject.checkUnique(word));
+        boolean checkUnique = testSubject.checkUnique(word);
+        System.out.println("Is word unique: " + checkUnique);
+        assertFalse(message, checkUnique);
     }
 
     // Test if word is empty
     @Test
     public void testWordEmpty1() {
+        String message = "Test if word is empty";
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println(message);
         String word = "\n";
-        assertFalse("Test if word is empty", testSubject.isNotEmptyWord(word));
+        System.out.println("Empty word: " + word);
+        boolean checkEmpty = testSubject.isNotEmptyWord(word);
+        System.out.println("Is not empty word: " + checkEmpty);
+        assertFalse(message, checkEmpty);
     }
 
     @Test
     public void testWordEmpty2() {
-        // PLACEHOLDER - String word = "Apples";
+        String message = "Test if word is not empty";
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println(message);
         String word = randomGenerator.randomString(15);
+        System.out.println("Non-empty word: " + word);
+        boolean checkEmpty = testSubject.isNotEmptyWord(word);
+        System.out.println("Is not empty word: " + checkEmpty);
         assertTrue("Test if word is not empty", testSubject.isNotEmptyWord(word));
     }
 
     // Test word formatter
     @Test
     public void testFormatter() {
-        // PLACEHOLDER - int i = 12;
+        String message = "Test if the output is formatted correctly";
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println(message);
         int count = randomGenerator.randomNumber(50000);
         String word = randomGenerator.randomString(15);
         String formatted = String.format("Word: %15s Count: %3d\n", word, count);
-        assertEquals("Test if the output is formatted correctly", formatted, testSubject.formatOutput(word, count));
+        System.out.println("Expected formatted output: " + formatted);
+        String actualFormatted = testSubject.formatOutput(word, count);
+        System.out.println("Actual formatted output: " + actualFormatted);
+        assertEquals("Test if the output is formatted correctly", formatted, actualFormatted);
     }
 
     // Test head words output
     @Test
     public void testHeadOutput() {
-
-        //String head = "Word: Apples Count: 1\n"; // PLACEHOLDER
+        String message = "Test if the head is correct";
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println(message);
         String head = randomOutput.getHead();
-        assertEquals("Test if the head is correct", head, testSubject.printHead(randomOutput.getWordArray(), randomOutput.getWordMap()));
+        System.out.println("Expected Head: \n" + head);
+        String actualHead = testSubject.printHead(randomOutput.getWordArray(), randomOutput.getWordMap());
+        System.out.println("Actual Head: \n" + actualHead);
+        assertEquals(message, head, actualHead);
     }
 
     // Test tail words output
     @Test
     public void testTailOutput() {
-        //String tail = "Word: Apples Count: 50000\n"; // PLACEHOLDER
+        String message = "Test if the tail is correct";
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println(message);
         String tail = randomOutput.getTail();
+        System.out.println("Expected tail: \n" + tail);
         int count = randomOutput.getWordCount();
-        assertEquals("Test if the tail is correct", tail, testSubject.printTail(randomOutput.getWordArray(), randomOutput.getWordMap(), count));
+        String actualTail = testSubject.printTail(randomOutput.getWordArray(), randomOutput.getWordMap(), count);
+        System.out.println("Actual Tail: \n" + actualTail);
+        assertEquals(message, tail, actualTail);
     }
 
 }
