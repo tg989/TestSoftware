@@ -15,15 +15,6 @@ public class GenerateRandom {
         return rand.nextInt();
     }
 
-    public String randomPath() {
-        String path = "c:";
-        int pathLength = randomNumber(10);
-        for(int i = 0; i < pathLength; i++) {
-            path += ("\\" + randomString(randomNumber(25)));
-        }
-        return path;
-    }
-
     public String generateLine() {
         String line = "";
         int numberOfWords = randomNumber(20);
