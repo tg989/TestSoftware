@@ -11,8 +11,8 @@ public class MergeSortTest {
 
     private MergeSort testSubject;
     private String[] words = {"Alice", "Erika", "David", "Flora", "Beth", "David", "Calvin", "Daisy"}; //Test words array.;
-    private String[] expected ={"David", "Alice", "Beth", "Calvin", "Daisy", "Erika", "Flora"};// expected words order
-
+    private String[] expected1 ={"David", "Alice", "Beth", "Calvin", "Daisy", "Erika", "Flora"};// expected words order
+    private String[] expected2 ={"David", "David", "Alice", "Beth", "Calvin", "Daisy", "Erika", "Flora"};// expected words order
     @Before
     public void setUp() throws Exception {
         this.testSubject = new MergeSort();
@@ -63,9 +63,9 @@ public class MergeSortTest {
         stringOrderUpset(); //upset the order of the words array
         String res[] = testSubject.mergeSortWordArray();
         //in this case, the right order in the String array should be
-        System.out.println("Expected Array: " + Arrays.toString(expected));
+        System.out.println("Expected Array: " + Arrays.toString(expected1));
         System.out.println("Actual Array: " + Arrays.toString(res));
-        Assert.assertArrayEquals(expected, res);
+        Assert.assertArrayEquals(expected1, res);
     }
 
     // Test merge sort
@@ -77,16 +77,10 @@ public class MergeSortTest {
         stringOrderUpset(); // upset the order of the words array
         String res[] = testSubject.mSort(words, 0, words.length-1);
         //in this case, the right order in the String array should be [Alice Beth Calvin Daisy David Erika Flora]
-        System.out.println("Expected Array: [David, David, Alice, Beth, Calvin, Daisy, Erika, Flora]");
+
+        System.out.println("Expected Array: " + Arrays.toString(expected2));
         System.out.println("Actual Array: " + Arrays.toString(res));
-        Assert.assertEquals("Test 1st word of merge sorted array", "David", res[0]);
-        Assert.assertEquals("Test 2nd word of merge sorted array", "David", res[1]);
-        Assert.assertEquals("Test 3rd word of merge sorted array", "Alice", res[2]);
-        Assert.assertEquals("Test 4th word of merge sorted array", "Beth", res[3]);
-        Assert.assertEquals("Test 5th word of merge sorted array", "Calvin", res[4]);
-        Assert.assertEquals("Test 6th word of merge sorted array", "Daisy", res[5]);
-        Assert.assertEquals("Test 7th word of merge sorted array", "Erika", res[6]);
-        Assert.assertEquals("Test 7th word of merge sorted array", "Flora", res[7]);
+        Assert.assertArrayEquals(expected2, res);
     }
 
     /**

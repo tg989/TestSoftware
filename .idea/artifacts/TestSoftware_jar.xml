@@ -4,6 +4,8 @@
     <root id="archive" name="TestSoftware.jar">
       <element id="module-output" name="TestSoftware" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../junit-4.10.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/A1sample.txt" />
+      <element id="file-copy" path="$PROJECT_DIR$/Dictionary.txt" />
     </root>
   </artifact>
 </component>

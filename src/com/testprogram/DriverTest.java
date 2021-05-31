@@ -35,13 +35,13 @@ public class DriverTest {
         System.out.println(message);
         boolean testReading = testSubject.readFile();
         System.out.println("Read in file: " + testReading);
-        assertTrue("Testing reading in the file", testReading);
+        assertTrue(message, testReading);
     }
 
     // Test Spilt Words
     @Test
     public void testSpilt() {
-        String message = "Testing spilt words array: ";
+        String message = "Testing split words array: ";
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println(message);
         String line = randomGenerator.generateLine();
@@ -102,7 +102,7 @@ public class DriverTest {
         System.out.println("Non-empty word: " + word);
         boolean checkEmpty = testSubject.isNotEmptyWord(word);
         System.out.println("Is not empty word: " + checkEmpty);
-        assertTrue("Test if word is not empty", testSubject.isNotEmptyWord(word));
+        assertTrue(message, checkEmpty);
     }
 
     // Test word formatter
@@ -117,7 +117,7 @@ public class DriverTest {
         System.out.println("Expected formatted output: " + formatted);
         String actualFormatted = testSubject.formatOutput(word, count);
         System.out.println("Actual formatted output: " + actualFormatted);
-        assertEquals("Test if the output is formatted correctly", formatted, actualFormatted);
+        assertEquals(message, formatted, actualFormatted);
     }
 
     // Test head words output
